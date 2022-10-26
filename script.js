@@ -1,8 +1,20 @@
+
 const movieBox = document.querySelector(".movieName");
 const countryBox = document.querySelector(".country");
 const movieDropDown = document.querySelector(".movieDropdown");
 
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'f74b8d2cb4msh1f5ccdfbfb6549ap1df05cjsn81230e4fdec8',
+		'X-RapidAPI-Host': 'utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com'
+	}
+};
+
+
+clean(movieDropDown);
 let cards = Array.from(movieDropDown.childNodes);
+
 
 
 
@@ -14,12 +26,16 @@ if(movieArray.length === 0){
 movieBox.addEventListener("input", () => {
     if(movieBox.value === ""){
         movieArray = [];
+        for(let i of cards){
+            i.firstChild.src = "";
+            i.lastChild.innerText = "";
+        }
 
     } else {
-        fetch(`https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${movieBox.value}&country=${countryBox.value}`)
-        .then(response => response.json())
-        .then(data =>  movieArray = data.results)
-        .catch(error => console.log(error));
+
+        gather().then(result => movieArray = result).catch(error => console.log(error));
+
+        console.log(movieArray);
 
         while(movieArray.length > 5){
             movieArray.pop();
@@ -27,13 +43,22 @@ movieBox.addEventListener("input", () => {
 
         let count = 0;
 
-        for(let i of movies){
-            cards[count].firstChild.src = i.picture;
+
+        for(let i of movieArray){
+            try{
+                cards[count].firstChild.src = i.picture;
+            } catch{
+                cards[count].firstChild.src = "https://w7.pngwing.com/pngs/807/819/png-transparent-http-404-computer-icons-world-wide-web-text-trademark-computer-thumbnail.png";
+            }
+            
+            cards[count].style.display = "";
             cards[count].lastChild.innerText = i.name;
             count++;
+
         }
 
         for(let i = count; i < 4; i++){
+            console.log(cards[i]);
             cards[i].style.display = "none";
         }
 
@@ -43,4 +68,34 @@ movieBox.addEventListener("input", () => {
 
     }
 })
+
+
+function clean(node)
+{
+  for(let n = 0; n < node.childNodes.length; n ++)
+  {
+    let child = node.childNodes[n];
+    if
+    (
+      child.nodeType === 8 
+      || 
+      (child.nodeType === 3 && !/\S/.test(child.nodeValue))
+    )
+    {
+      node.removeChild(child);
+      n --;
+    }
+    else if(child.nodeType === 1)
+    {
+      clean(child);
+    }
+  }
+}
+
+async function gather(){
+    const response = await fetch(`https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${movieBox.value}&country=${countryBox.value}`,options);
+    const data = await response.json();
+    return data.results;
+
+}
 
