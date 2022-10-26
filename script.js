@@ -1,6 +1,6 @@
-const movieBox = document.querySelector("#movieName");
-const countryBox = document.querySelector("#country");
-const movieDropDown = document.querySelector("#movieDropdown");
+const movieBox = document.querySelector(".movieName");
+const countryBox = document.querySelector(".country");
+const movieDropDown = document.querySelector(".movieDropdown");
 
 let cards = Array.from(movieDropDown.childNodes);
 
@@ -11,12 +11,12 @@ if(movieArray.length === 0){
     movieDropDown.style.display = "none";
 }
 
-textBox.addEventListener("input", () => {
-    if(textBox.value === ""){
+movieBox.addEventListener("input", () => {
+    if(movieBox.value === ""){
         movieArray = [];
 
     } else {
-        fetch(`https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${textBox.value}&country=${countryBox.value}`)
+        fetch(`https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${movieBox.value}&country=${countryBox.value}`)
         .then(response => response.json())
         .then(data =>  movieArray = data.results)
         .catch(error => console.log(error));
