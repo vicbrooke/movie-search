@@ -161,6 +161,13 @@ p {
   font-size: larger;
 }
 
+.watchlistButton{
+  border-radius: 50px;
+  background: rgb(255,249,252);
+  background: radial-gradient(circle, rgba(255,249,252,1) 0%, rgba(148,187,233,1) 100%);
+
+}
+
 .movieImage {
   width: 90%;
   align-self: center;
