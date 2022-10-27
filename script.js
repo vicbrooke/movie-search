@@ -42,8 +42,8 @@ function addMovieDetails(movie){
     }
 
     movieDropDown.style.display = "none";
-    watchlistButton.style.display = "";
-    description2.style.display = "";
+    watchlistButton.style.display = "inline"
+    description2.style.display = "inline";
 
 
 }
@@ -141,7 +141,7 @@ movieBox.addEventListener("input", () => {
 
 
 document.addEventListener("click",(e) => {
-    if(e.target.matches(".movieSuggestions,.dropdownImage, dropdownTag")){
+    if(e.target.matches(".movieSuggestions,.dropdownImage, .dropdownTag")){
 
         
         const card = e.target.closest(".movieSuggestions");
