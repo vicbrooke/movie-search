@@ -56,6 +56,7 @@ p {
 .description {
   text-align: center;
   width: 80%;
+
 }
 
 .searchContainer {
@@ -153,6 +154,11 @@ p {
   flex-direction: column;
   align-content: center;
   margin: 3vw 0;
+}
+
+.movieTitle{
+  font-family: "Archivo Black";
+  font-size: larger;
 }
 
 .movieImage {
