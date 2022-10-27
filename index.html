@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie Finding App</title>
-    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Judson:400,700" rel="stylesheet">;
+    <link
+      href="https://fonts.googleapis.com/css?family=Archivo+Black|Judson:400,700"
+      rel="stylesheet"
+    />
+    ;
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -16,12 +20,9 @@
 
     <main>
       <div class="topContainer">
-        <p class="description">
-          Find out where you can stream your fav movie
-        </p>
+        <p class="description">Find out where you can stream your fav movie</p>
 
         <div class="searchContainer">
-
           <div class="countrySearch">
             <select class="country" name="country">
               <option value="">Select your country</option>
@@ -49,51 +50,56 @@
             </select>
           </div>
           <div class="movieSearch">
-            <input type="search" class="movieName" name="movieName" placeholder="search movie..." />
-
+            <input
+              type="search"
+              class="movieName"
+              name="movieName"
+              placeholder="search movie..."
+            />
 
             <div class="movieDropdown">
               <div class="movieSuggestions">
                 <img class="dropdownImage" />
-                <p class ="dropdownTag"></p>
-              </div>
-
-              <div class="movieSuggestions">
-                <img class="dropdownImage"/>
-                <p class ="dropdownTag"></p>
-              </div>
-
-              <div class="movieSuggestions">
-                <img class="dropdownImage"/>
-                <p class ="dropdownTag"></p>
+                <p class="dropdownTag"></p>
               </div>
 
               <div class="movieSuggestions">
                 <img class="dropdownImage" />
-                <p class ="dropdownTag"></p>
+                <p class="dropdownTag"></p>
               </div>
 
               <div class="movieSuggestions">
-                <img class="dropdownImage"/>
-                <p class ="dropdownTag"></p>
+                <img class="dropdownImage" />
+                <p class="dropdownTag"></p>
+              </div>
+
+              <div class="movieSuggestions">
+                <img class="dropdownImage" />
+                <p class="dropdownTag"></p>
+              </div>
+
+              <div class="movieSuggestions">
+                <img class="dropdownImage" />
+                <p class="dropdownTag"></p>
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
       <div class="movieCard">
         <aside class="watchlist">
           <h2>My Watchlist</h2>
-          <ul class ="chosenMovies"></ul>
+          <ul class="chosenMovies"></ul>
         </aside>
-        <div class = movieInfo>
+        <div class="movieInfo">
           <div class="movieContainer">
-            <h2 class="movieTitle"></h2>
-            <button class="watchlistButton">add to watchlist</button>
-            <img class="movieImage">
-            <div class ="streamingSection">
+            <div class="title-button">
+              <h2 class="movieTitle"></h2>
+              <button class="watchlistButton">add to watchlist</button>
+            </div>
+            <img class="movieImage" />
+            <div class="streamingSection">
               <p>You can stream this film on the following platforms:</p>
               <ul class="streamingPlatforms"></ul>
             </div>
