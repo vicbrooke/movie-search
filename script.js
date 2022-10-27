@@ -4,9 +4,13 @@ const movieDropDown = document.querySelector(".movieDropdown");
 const movieTitle = document.querySelector(".movieTitle");
 const movieImage = document.querySelector(".movieImage");
 const streamingPlatforms = document.querySelector(".streamingPlatforms");
+const watchlistButton = document.querySelector(".watchlistButton");
+const chosenMovies = document.querySelector(".chosenMovies");
+let watchlistArr = []
 let typingTimer;
 let a;
 let li;
+let currentMovie;
 
 const options = {
   method: "GET",
@@ -35,6 +39,8 @@ function addMovieDetails(movie){
         li.append(a);
         streamingPlatforms.append(li);
     }
+
+    movieDropDown.style.display = "none";
 
 }
 
@@ -114,6 +120,7 @@ async function search(){
 clean(movieDropDown);
 let cards = Array.from(movieDropDown.childNodes);
 
+
 let movieArray = [];
 if (movieArray.length === 0) {
   movieDropDown.style.display = "none";
@@ -134,15 +141,28 @@ document.addEventListener("click",(e) => {
 
         
         const card = e.target.closest(".movieSuggestions");
-        console.log(card);
-        console.log(cards);
         let selection = movieArray[cards.findIndex((element) => {return element === card})];
 
 
 
         addMovieDetails(selection);
 
-        movieDropDown.style.display = "none";
+        currentMovie = selection;
+
+        
+
+
+    } else if (e.target.matches(".watchlistMovie")) {
+        const list = e.target.closest("li");
+        clean(chosenMovies);
+        let watchlist = Array.from(chosenMovies.childNodes);
+        console.log(watchlist);
+        let selection = watchlistArr[watchlist.findIndex((element) => {return element === list;})];
+        console.log(selection);
+
+        addMovieDetails(selection);
+
+
 
 
     }
@@ -154,12 +174,26 @@ movieBox.addEventListener("keypress", (e) => {
         if(movieArray.length > 0){
 
             addMovieDetails(movieArray[0]);
+            currentMovie = movieArray[0];
             movieDropDown.style.display = "none";
 
         } else { return; }
 
     }
 })
+
+watchlistButton.addEventListener("click", () => {
+    if(!watchlistArr.includes(currentMovie)){
+        watchlistArr.push(currentMovie);
+        a = document.createElement("p");
+        li = document.createElement("li");
+        a.innerHTML = currentMovie.name;
+        a.classList.add("watchlistMovie");
+        li.append(a);
+        chosenMovies.append(li);
+    }
+})
+
 
 
 
