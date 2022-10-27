@@ -5,13 +5,18 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
-  font-family: audiowide;
-  background-color: rgb(33, 33, 33);
+  font-family: 'Judson', serif;
+  background: rgb(4,3,32);
+  background: radial-gradient(circle, rgba(4,3,32,1) 0%, rgba(47,36,119,1) 100%);
 }
+
 
 header {
   width: 100vw;
   color: whitesmoke;
+  font-family: 'Archivo Black';
+  font-size: larger;
+  
 }
 
 main {
@@ -20,6 +25,7 @@ main {
   flex-direction: column;
   align-content: center;
   flex: 1;
+  font-family:sans-serif;
 }
 
 .topContainer {
