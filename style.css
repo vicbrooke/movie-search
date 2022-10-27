@@ -5,18 +5,20 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
-  font-family: 'Judson', serif;
-  background: rgb(4,3,32);
-  background: radial-gradient(circle, rgba(4,3,32,1) 0%, rgba(47,36,119,1) 100%);
+  font-family: "Judson", serif;
+  background: rgb(4, 3, 32);
+  background: radial-gradient(
+    circle,
+    rgba(4, 3, 32, 1) 0%,
+    rgba(47, 36, 119, 1) 100%
+  );
 }
-
 
 header {
   width: 100vw;
   color: whitesmoke;
-  font-family: 'Archivo Black';
+  font-family: "Archivo Black";
   font-size: larger;
-  
 }
 
 main {
@@ -25,7 +27,7 @@ main {
   flex-direction: column;
   align-content: center;
   flex: 1;
-  font-family:sans-serif;
+  font-family: sans-serif;
 }
 
 footer {
@@ -41,19 +43,25 @@ p {
   align-self: center;
   color: whitesmoke;
 }
-
+.searchContainer {
+  width: 90vw;
+}
+.movieSearch {
+  display: flex;
+  flex-direction: column;
+}
 .movieName {
-  position: relative;
-  display: inline-block;
+  align-self: center;
+  /* position: relative; */
+  /* display: inline-block; */
 }
 
 .movieSuggestions {
   display: flex;
-  /* display: none; */
-  /* position: absolute; */
   background-color: #f9f9f9;
   margin: 1vw;
   min-width: 160px;
+  max-width: 90%;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
@@ -97,18 +105,40 @@ p {
 
 .movieCard {
   display: flex;
+  flex-direction: row;
+}
+
+a {
+  color: whitesmoke;
+}
+
+.watchlist {
+  display: flex;
   flex-direction: column;
+  min-width: 25vw;
+}
+
+.movieInfo {
+  display: flex;
+  flex-direction: column;
+  margin: 0 3vw;
 }
 
 .movieContainer {
   display: flex;
   flex-direction: column;
   align-content: center;
+  margin: 3vw 0;
+}
+
+.movieImage {
+  width: 90%;
+  align-self: center;
 }
 
 .country {
   margin: 2vw;
-  width: 20vw;
+  min-width: 20vw;
 }
 
 @media (min-width: 768px) {
