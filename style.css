@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-family: audiowide;
+}
+
+header {
+  width: 100vw;
+}
+
+main {
+  margin: 1vw;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex: 1;
+  border: solid black 2px;
+}
+
+.topContainer {
+  display: flex;
+  flex-direction: column;
+  border: solid blue 2px;
+}
+
+p {
+  align-self: center;
+}
+
+.movieName {
+  margin-top: 4vw;
+}
+
+.searchButton {
+  align-self: center;
+}
+
+.description {
+  text-align: center;
+  width: 80%;
+  border: solid red 2px;
+}
+
+.descriptionContainer {
+  border: solid blueviolet 2px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.searchContainer {
+  padding: 2vw;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  border: solid pink 2px;
+}
+
+.movieCard {
+  display: flex;
+  flex-direction: column;
+  border: solid orange 2px;
+}
+
+.movieContainer {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  border: solid green 2px;
+}
+
+.country {
+  margin: 4vw;
+}
+
+@media (min-width: 768px) {
+  .topContainer {
+    /* do we want this layout?? */
+    /* flex-direction: row; */
+  }
+  .description {
+    width: 80%;
+  }
+  .descriptionContainer {
+    width: 100%;
+  }
+  .searchContainer {
+    width: 100%;
+    /* or this layout?? */
+    flex-direction: row;
+  }
+}
