@@ -156,6 +156,11 @@ p {
   margin: 3vw 0;
 }
 
+
+.watchlistButton{
+  display: none;
+}
+
 .movieTitle{
   font-family: "Archivo Black";
   font-size: larger;
@@ -171,6 +176,10 @@ p {
 .movieImage {
   width: 90%;
   align-self: center;
+}
+
+.description2{
+  display: none;
 }
 
 @media (min-width: 768px) {
