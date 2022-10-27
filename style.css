@@ -53,8 +53,9 @@ p {
 }
 
 .movieSuggestions p {
-  margin-left: 3vw;
+  margin: 0 3vw;
   text-align: left;
+  color: black;
 }
 
 .searchButton {
@@ -97,6 +98,7 @@ p {
 
 .country {
   margin: 2vw;
+  width: 20vw;
 }
 
 @media (min-width: 768px) {
@@ -112,6 +114,7 @@ p {
   }
   .country {
     margin: 0;
+    width: 10vw;
   }
   .movieSearch {
     display: flex;
