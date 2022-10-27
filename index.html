@@ -11,6 +11,7 @@
   <body>
     <header>
       <h1 class="title">StreamFinder</h1>
+      <button class="openWatchlist">View Watchlist</button>
     </header>
 
     <main>
@@ -50,43 +51,50 @@
           <div class="movieSearch">
             <input type="search" class="movieName" name="movieName" />
 
+
             <div class="movieDropdown">
               <div class="movieSuggestions">
-                <img />
-                <p></p>
+                <img class="dropdownImage" />
+                <p class ="dropdownTag"></p>
               </div>
 
               <div class="movieSuggestions">
-                <img />
-                <p></p>
+                <img class="dropdownImage"/>
+                <p class ="dropdownTag"></p>
               </div>
 
               <div class="movieSuggestions">
-                <img />
-                <p></p>
+                <img class="dropdownImage"/>
+                <p class ="dropdownTag"></p>
               </div>
 
               <div class="movieSuggestions">
-                <img />
-                <p></p>
+                <img class="dropdownImage" />
+                <p class ="dropdownTag"></p>
               </div>
 
               <div class="movieSuggestions">
-                <img />
-                <p></p>
+                <img class="dropdownImage"/>
+                <p class ="dropdownTag"></p>
               </div>
             </div>
           </div>
 
-          <!-- <button class="searchButton">Search</button> -->
         </div>
       </div>
 
       <div class="movieCard">
-        <h2 class="movieTitle"></h2>
+        <aside class="watchlist">
+          <h2>My Watchlist</h2>
+          <li class ="chosenMovies"></li>
+        </aside>
+        <div class = movieInfo >
+          <h2 class="movieTitle"></h2>
+          <button class = "watchlistButton">add to watchlist</button>
           <div class="movieContainer">
             <img class="movieImage">
-            <div class="streamingSection">
+            <div class ="streamingSection">
+              <p>You can stream this film on the following platforms:</p>
               <ul class="streamingPlatforms"></ul>
             </div>
           </div>
