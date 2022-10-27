@@ -169,18 +169,16 @@ ul {
   margin: 3vw 0;
 }
 
-
 .title-button {
   display: flex;
   flex-direction: column;
 }
 
-.watchlistButton{
+.watchlistButton {
   display: none;
 }
 
-.movieTitle{
-
+.movieTitle {
   font-family: "Archivo Black";
   font-size: large;
 }
@@ -195,6 +193,7 @@ ul {
   );
   align-self: center;
   margin-bottom: 2vw;
+  display: none;
 }
 
 .movieImage {
@@ -202,7 +201,7 @@ ul {
   align-self: center;
 }
 
-.description2{
+.description2 {
   display: none;
 }
 
