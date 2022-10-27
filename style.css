@@ -34,26 +34,58 @@ footer {
   color: whitesmoke;
 }
 
-.topContainer {
-  display: flex;
-  flex-direction: column;
+a {
+  color: whitesmoke;
+}
+
+h2 {
+  color: whitesmoke;
 }
 
 p {
   align-self: center;
   color: whitesmoke;
 }
+
+/* topContainer and search feature */
+.topContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.description {
+  text-align: center;
+  width: 80%;
+}
+
 .searchContainer {
   width: 90vw;
   align-self: center;
+  padding: 2vw;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 }
+
+.country {
+  margin: 2vw;
+  min-width: 20vw;
+  height: 30px;
+}
+
 .movieSearch {
   display: flex;
   flex-direction: column;
 }
+
 .movieName {
   align-self: center;
   height: 30px;
+}
+
+.movieDropdown {
+  position: relative;
+  display: inline-block;
 }
 
 .movieSuggestions {
@@ -83,48 +115,28 @@ p {
   color: black;
 }
 
-.searchButton {
-  align-self: center;
-}
-
-.description {
-  text-align: center;
-  width: 80%;
-}
-
-.descriptionContainer {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
-
-.searchContainer {
-  padding: 2vw;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-}
-
-.movieDropdown {
-  position: relative;
-  display: inline-block;
-}
-
+/* movieCard */
 .movieCard {
   display: flex;
   flex-direction: row;
 }
 
-a {
-  color: whitesmoke;
-}
-
+/* aside */
 .watchlist {
   display: flex;
   flex-direction: column;
   min-width: 25vw;
 }
 
+.watchlistMovie {
+  transition: all 0.2s ease-in-out;
+}
+
+.watchlistMovie:hover {
+  transform: scale(1.1);
+}
+
+/* movieInfo */
 .movieInfo {
   display: flex;
   flex-direction: column;
@@ -143,31 +155,22 @@ a {
   align-self: center;
 }
 
-.country {
-  margin: 2vw;
-  min-width: 20vw;
-  height: 30px;
-}
-
 @media (min-width: 768px) {
-  .description {
-    width: 80%;
-  }
-  .descriptionContainer {
-    width: 100%;
-  }
   .searchContainer {
     flex-direction: row;
     justify-content: space-around;
   }
+
   .country {
     margin: 0;
     width: 10vw;
   }
+
   .movieSearch {
     display: flex;
     flex-direction: column;
   }
+
   .movieName {
     align-self: center;
   }
