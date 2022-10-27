@@ -131,6 +131,7 @@ movieBox.addEventListener("keypress", (e) => {
         if(movieArray.length > 0){
 
             addMovieDetails(movieArray[0]);
+            movieDropDown.style.display = "none";
 
         } else { return; }
 
