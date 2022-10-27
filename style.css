@@ -6,10 +6,12 @@ body {
   display: flex;
   flex-direction: column;
   font-family: audiowide;
+  background-color: rgb(33, 33, 33);
 }
 
 header {
   width: 100vw;
+  color: whitesmoke;
 }
 
 main {
@@ -18,21 +20,41 @@ main {
   flex-direction: column;
   align-content: center;
   flex: 1;
-  border: solid black 2px;
 }
 
 .topContainer {
   display: flex;
   flex-direction: column;
-  border: solid blue 2px;
 }
 
 p {
   align-self: center;
+  color: whitesmoke;
 }
 
 .movieName {
-  margin-top: 4vw;
+  position: relative;
+  display: inline-block;
+}
+
+.movieSuggestions {
+  display: flex;
+  /* display: none; */
+  /* position: absolute; */
+  background-color: #f9f9f9;
+  margin: 1vw;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.movieSuggestions img {
+  width: 20vw;
+  margin: 1vw;
+}
+
+.movieSuggestions p {
+  margin-left: 3vw;
+  text-align: left;
 }
 
 .searchButton {
@@ -42,11 +64,9 @@ p {
 .description {
   text-align: center;
   width: 80%;
-  border: solid red 2px;
 }
 
 .descriptionContainer {
-  border: solid blueviolet 2px;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -57,31 +77,29 @@ p {
   display: flex;
   flex-direction: column;
   align-content: center;
-  border: solid pink 2px;
+}
+
+.movieDropdown {
+  position: relative;
+  display: inline-block;
 }
 
 .movieCard {
   display: flex;
   flex-direction: column;
-  border: solid orange 2px;
 }
 
 .movieContainer {
   display: flex;
   flex-direction: column;
   align-content: center;
-  border: solid green 2px;
 }
 
 .country {
-  margin: 4vw;
+  margin: 2vw;
 }
 
 @media (min-width: 768px) {
-  .topContainer {
-    /* do we want this layout?? */
-    /* flex-direction: row; */
-  }
   .description {
     width: 80%;
   }
@@ -89,8 +107,17 @@ p {
     width: 100%;
   }
   .searchContainer {
-    width: 100%;
-    /* or this layout?? */
     flex-direction: row;
+    justify-content: space-around;
+  }
+  .country {
+    margin: 0;
+  }
+  .movieSearch {
+    display: flex;
+    flex-direction: column;
+  }
+  .movieName {
+    align-self: center;
   }
 }
