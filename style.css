@@ -108,25 +108,37 @@ p {
   flex-direction: row;
 }
 
+a {
+  color: whitesmoke;
+}
+
 .watchlist {
   display: flex;
   flex-direction: column;
+  min-width: 25vw;
 }
 
 .movieInfo {
   display: flex;
   flex-direction: column;
+  margin: 0 3vw;
 }
 
 .movieContainer {
   display: flex;
   flex-direction: column;
   align-content: center;
+  margin: 3vw 0;
+}
+
+.movieImage {
+  width: 90%;
+  align-self: center;
 }
 
 .country {
   margin: 2vw;
-  width: 20vw;
+  min-width: 20vw;
 }
 
 @media (min-width: 768px) {
