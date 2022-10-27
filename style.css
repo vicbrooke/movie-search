@@ -22,6 +22,10 @@ main {
   flex: 1;
 }
 
+footer {
+  color: whitesmoke;
+}
+
 .topContainer {
   display: flex;
   flex-direction: column;
