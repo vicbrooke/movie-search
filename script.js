@@ -2,6 +2,10 @@
 const movieBox = document.querySelector(".movieName");
 const countryBox = document.querySelector(".country");
 const movieDropDown = document.querySelector(".movieDropdown");
+const movieTitle = document.querySelector(".movieTitle");
+const movieImage = document.querySelector(".movieImage");
+const streamingPlatforms = document.querySelector(".streamingPlatforms");
+let typingTimer;
 
 const options = {
 	method: 'GET',
@@ -27,15 +31,8 @@ let inputDisabled = false;
 let registeredInput = false
 
 movieBox.addEventListener("input", () => {
-    if(!inputDisabled){
-        inputDisabled = true;
-        setTimeout(function(){inputDisabled = false;
-        search()}, 1000);
-        search()
-       
-
-
-    }
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(search, 200);
 })
 
 
@@ -64,21 +61,23 @@ function clean(node)
 async function gather(){
     const response = await fetch(`https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${movieBox.value}&country=${countryBox.value}`,options);
     const data = await response.json();
+    console.log(data.results);
     return data.results;
 
 }
 
-function search(){
+async function search(){
     if(movieBox.value === ""){
         movieArray = [];
         for(let i of cards){
+            i.style.display = "none";
             i.firstChild.src = "";
             i.lastChild.innerText = "";
         }
 
     } else {
 
-        gather().then(result => movieArray = result).catch(error => console.log(error));
+        await gather().then(result => movieArray = result).catch(error => console.log(error));
 
         console.log(movieArray);
 
@@ -109,6 +108,51 @@ function search(){
         }
 
         movieDropDown.style.display = "";
+    }
+
+}
+
+document.addEventListener("click",(e) => {
+    if(e.target.matches(".movieSuggestions,.dropdownImage, dropdownTag")){
+
+        let a;
+        const card = e.target.closest(".movieSuggestions");
+        console.log(card);
+        console.log(cards);
+        let selection = movieArray[cards.findIndex((element) => {return element === card})];
+
+
+
+        addMovieDetails(selection);
+
+        movieDropDown.style.display = "none";
+
+
+    }
+})
+
+movieBox.addEventListener("keypress", (e) => {
+    if(e.key === "Enter"){
+        e.preventDefault();
+        if(movieArray.length > 0){
+
+            addMovieDetails(movieArray[0]);
+
+        } else { return; }
+
+    }
+})
+
+function addMovieDetails(movie){
+
+    movieTitle.innerText = movie.name;
+    movieImage.src = movie.picture;
+
+    for(let i of movie.locations){
+        a = document.createElement("a");
+        a.href = i.url;
+        a.innerHTML = i.display_name;
+        streamingPlatforms.append(a);
     }
 
 }
