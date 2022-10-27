@@ -6,6 +6,7 @@ const movieImage = document.querySelector(".movieImage");
 const streamingPlatforms = document.querySelector(".streamingPlatforms");
 const watchlistButton = document.querySelector(".watchlistButton");
 const chosenMovies = document.querySelector(".chosenMovies");
+const description2 = document.querySelector(".description2");
 let watchlistArr = []
 let typingTimer;
 let a;
@@ -41,6 +42,9 @@ function addMovieDetails(movie){
     }
 
     movieDropDown.style.display = "none";
+    watchlistButton.style.display = "inline"
+    description2.style.display = "inline";
+
 
 }
 
@@ -137,7 +141,7 @@ movieBox.addEventListener("input", () => {
 
 
 document.addEventListener("click",(e) => {
-    if(e.target.matches(".movieSuggestions,.dropdownImage, dropdownTag")){
+    if(e.target.matches(".movieSuggestions,.dropdownImage, .dropdownTag")){
 
         
         const card = e.target.closest(".movieSuggestions");

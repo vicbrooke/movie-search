@@ -169,12 +169,18 @@ ul {
   margin: 3vw 0;
 }
 
+
 .title-button {
   display: flex;
   flex-direction: column;
 }
 
-.movieTitle {
+.watchlistButton{
+  display: none;
+}
+
+.movieTitle{
+
   font-family: "Archivo Black";
   font-size: large;
 }
@@ -194,6 +200,10 @@ ul {
 .movieImage {
   width: 70%;
   align-self: center;
+}
+
+.description2{
+  display: none;
 }
 
 @media (min-width: 768px) {
