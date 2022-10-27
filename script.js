@@ -5,6 +5,8 @@ const movieTitle = document.querySelector(".movieTitle");
 const movieImage = document.querySelector(".movieImage");
 const streamingPlatforms = document.querySelector(".streamingPlatforms");
 let typingTimer;
+let a;
+let li;
 
 const options = {
   method: "GET",
@@ -109,7 +111,7 @@ async function search(){
 document.addEventListener("click",(e) => {
     if(e.target.matches(".movieSuggestions,.dropdownImage, dropdownTag")){
 
-        let a;
+        
         const card = e.target.closest(".movieSuggestions");
         console.log(card);
         console.log(cards);
@@ -140,14 +142,21 @@ movieBox.addEventListener("keypress", (e) => {
 
 function addMovieDetails(movie){
 
+    while(streamingPlatforms.firstChild){
+        streamingPlatforms.removeChild(streamingPlatforms.lastChild);
+    };
+
     movieTitle.innerText = movie.name;
     movieImage.src = movie.picture;
 
     for(let i of movie.locations){
         a = document.createElement("a");
+        li = document.createElement("li");
         a.href = i.url;
         a.innerHTML = i.display_name;
-        streamingPlatforms.append(a);
+        a.target = "_blank";
+        li.append(a);
+        streamingPlatforms.append(li);
     }
 
 }
