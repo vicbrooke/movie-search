@@ -217,7 +217,7 @@ ul {
 }
 
 .featuredImage {
-  width: 40vw;
+  width: 30vw;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
@@ -226,7 +226,7 @@ ul {
 
 .movieCard {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
 }
 
 /* aside */

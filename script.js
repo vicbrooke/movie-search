@@ -9,10 +9,10 @@ const chosenMovies = document.querySelector(".chosenMovies");
 const description2 = document.querySelector(".description2");
 const featured = document.querySelector(".featured");
 const featuredContainer = document.querySelector(".featuredContainer");
-const viewWatchlist = document.querySelector(".openWatchlist")
-countryFontColor = document.querySelector(".country")
-navButton = document.querySelector('.navButton')
-navItems = document.querySelector('.nav-items')
+const viewWatchlist = document.querySelector(".openWatchlist");
+countryFontColor = document.querySelector(".country");
+navButton = document.querySelector(".navButton");
+navItems = document.querySelector(".nav-items");
 
 const movieInfo = document.querySelector(".movieInfo");
 
@@ -66,7 +66,6 @@ function addMovieDetails(movie) {
   watchlistButton.style.display = "inline";
   description2.style.display = "inline";
   featuredContainer.style.display = "none";
-
 }
 
 function clean(node) {
@@ -121,10 +120,10 @@ async function search() {
     let count = 0;
 
     for (let i of movieArray) {
-        if(cards[count].firstChild.src === i.picture){
-            count++;
-            continue;
-        }
+      if (cards[count].firstChild.src === i.picture) {
+        count++;
+        continue;
+      }
       try {
         cards[count].firstChild.src = i.picture;
       } catch {
@@ -148,29 +147,29 @@ async function search() {
 }
 
 async function mergeMovies() {
-    mergedArray = [];
-    await gather("a")
-      .then((result) => (mergedArray = result))
-      .catch((error) => console.log(error));
-    await gather("t")
-      .then((result) => (mergedArray = mergedArray.concat(result)))
-      .catch((error) => console.log(error));
-    console.log(mergedArray);
-  
-    mergedArray.forEach((film) => {
-      const filmDiv = document.createElement("div");
-      const filmImage = document.createElement("img");
-      const filmTag = document.createElement("p");
-      filmDiv.className = "featuredDiv";
-      filmImage.className = "featuredImage";
-      filmTag.className = "featuredTag";
-      filmImage.setAttribute("src", film.picture);
-      filmTag.innerText = film.name;
-      filmDiv.append(filmImage);
-      filmDiv.append(filmTag);
-      featured.append(filmDiv);
-    });
-  }
+  mergedArray = [];
+  await gather("a")
+    .then((result) => (mergedArray = result))
+    .catch((error) => console.log(error));
+  await gather("t")
+    .then((result) => (mergedArray = mergedArray.concat(result)))
+    .catch((error) => console.log(error));
+  console.log(mergedArray);
+
+  mergedArray.forEach((film) => {
+    const filmDiv = document.createElement("div");
+    const filmImage = document.createElement("img");
+    const filmTag = document.createElement("p");
+    filmDiv.className = "featuredDiv";
+    filmImage.className = "featuredImage";
+    filmTag.className = "featuredTag";
+    filmImage.setAttribute("src", film.picture);
+    filmTag.innerText = film.name;
+    filmDiv.append(filmImage);
+    filmDiv.append(filmTag);
+    featured.append(filmDiv);
+  });
+}
 
 clean(movieDropDown);
 let cards = Array.from(movieDropDown.childNodes);
@@ -197,10 +196,10 @@ document.addEventListener("click", (e) => {
           return element === card;
         })
       ];
-      addMovieDetails(selection);
+    addMovieDetails(selection);
   } else if (e.target.matches(".watchlistMovie")) {
     const list = e.target.closest("li");
-    const container = e.target.closest(".chosenMovies")
+    const container = e.target.closest(".chosenMovies");
     let watchlist = Array.from(container.childNodes);
     console.log(watchlist);
     selection =
@@ -211,18 +210,19 @@ document.addEventListener("click", (e) => {
       ];
     console.log(selection);
     addMovieDetails(selection);
-
-    
-  } else if (e.target.matches(".featuredDiv,.featuredImage,.featuredTag")){
+  } else if (e.target.matches(".featuredDiv,.featuredImage,.featuredTag")) {
     let featuredMovie = e.target.closest(".featuredDiv");
     clean(featured);
     featuredArray = Array.from(featured.childNodes);
-    selection = mergedArray[featuredArray.findIndex((element) => { return element === featuredMovie;})]
+    selection =
+      mergedArray[
+        featuredArray.findIndex((element) => {
+          return element === featuredMovie;
+        })
+      ];
     console.log(selection);
     addMovieDetails(selection);
   }
-
-  
 });
 
 movieBox.addEventListener("keypress", (e) => {
@@ -247,43 +247,38 @@ watchlistButton.addEventListener("click", () => {
     a.classList.add("watchlistMovie");
     li.append(a);
     chosenMovies.append(li);
-
   }
 });
 
 function openNav() {
-    document.querySelector(".watchlist").style.width = "250px";
-    console.log(document.querySelector(".watchlist").style.width);
-    navItems.style.display = 'flex'
-    return false;
-};
+  document.querySelector(".watchlist").style.width = "25vw";
+  console.log(document.querySelector(".watchlist").style.width);
+  navItems.style.display = "flex";
+  return false;
+}
 
 function closeNav() {
-    console.log(document.querySelector(".watchlist").style.width);
-    document.querySelector(".watchlist").style.width = "0";
-    return false;
-    
+  console.log(document.querySelector(".watchlist").style.width);
+  document.querySelector(".watchlist").style.width = "0";
+  return false;
 }
 
 function displayWatchlist() {
-  if(document.querySelector(".watchlistDropdown").style.display === "block"){
-    document.querySelector(".watchlistDropdown").style.display = "none"
-  } else{
-    document.querySelector(".watchlistDropdown").style.display = "block"
+  if (document.querySelector(".watchlistDropdown").style.display === "block") {
+    document.querySelector(".watchlistDropdown").style.display = "none";
+  } else {
+    document.querySelector(".watchlistDropdown").style.display = "block";
   }
 }
 
-
-
-
-countryFontColor.addEventListener('mouseover', function onClick(event) {
+countryFontColor.addEventListener("mouseover", function onClick(event) {
   const fontColor = event.target.style.color;
-  if(fontColor === "white"){
-    event.target.style.color = 'black'
-  } else{
-    event.target.style.color = 'white'
+  if (fontColor === "white") {
+    event.target.style.color = "black";
+  } else {
+    event.target.style.color = "white";
   }
-})
+});
 
 // navButton.addEventListener('click', () =>{
 
@@ -294,7 +289,5 @@ countryFontColor.addEventListener('mouseover', function onClick(event) {
 //      navItems.style.display = 'none'
 //   }
 // })
-
-
 
 mergeMovies();
