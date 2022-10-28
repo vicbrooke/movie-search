@@ -14,28 +14,8 @@ body {
   );
 }
 
-header {
-  width: 100vw;
-  color: whitesmoke;
-  font-family: "Archivo Black";
-  font-size: larger;
-}
 
-
-/* Menu section */
-
-
-.openWatchlist{ 
-  height: min-content;
-  background: rgb(146,148,209);
-  background: linear-gradient(153deg, rgba(146,148,209,1) 0%, rgba(67,107,148,1) 91%);
-    padding: 0.5rem;
-    border: none;
-    outline: none;
-    border-radius: 0.5rem;
-    color: white;
-    box-shadow: 0.25rem 0.25rem 0rem rgba(130,144,158,1);
-}
+/* Header section */
 
 header {
   width: 100vw;
@@ -49,55 +29,22 @@ header {
   border: none;
   position:absolute; 
   top:0; 
-  right:0;
+  left:0;
   padding: 20px;
   margin: 20px;
   margin-top:  10px;
+}
+
+.navButton :hover{
+  transform: scale(1.1);
+  cursor: pointer;
+
 }
 
 .fa-bars{
   color: white;
 
 }
-
-.headerContainer {
-  display: flex;
-  justify-content: space-around;
-  width: 100vw;
-  color: whitesmoke;
-  font-family: "Archivo Black";
-  font-size: larger;
-  flex-direction: row;
-  align-items: center;
-  align-content: center;
-}
-
-.nav-items{
-  list-style:none;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  display: none;
-  
-}
-
-.country {
-  margin: 2vw;
-  min-width: 20vw;
-  background: rgb(146,148,209);
-  background: linear-gradient(153deg, rgba(146,148,209,1) 0%, rgba(67,107,148,1) 91%);
-    padding: 0.5rem;
-    border: none;
-    outline: none;
-    border-radius: 0.5rem;
-    color: white;
-    box-shadow: 0.25rem 0.25rem 0rem rgba(130,144,158,1);
-    cursor: pointer;
-
-}
-
-
-
 
 /* main section */
 main {
@@ -221,6 +168,7 @@ ul {
 
 /* featured films */
 
+
 .featured {
   display: flex;
   flex-direction: row;
@@ -263,18 +211,112 @@ ul {
 }
 
 /* aside */
+
 .watchlist {
-  flex-direction: column;
-  margin: 3vw 0;
+  margin-top: 0;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 3vw;
+  transition: 0.5s;
+  font-family: Verdana, Geneva, Tahoma, sans-serif ;
+  }
+
+.headerContainer {
+  display: flex;
+  justify-content: space-around;
+  width: 100vw;
+  color: whitesmoke;
+  font-family: "Archivo Black";
+  font-size: larger;
+  flex-direction: row;
+  align-items: center;
   align-content: center;
+}
+
+.nav-items{
+  list-style:none;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  display: none;
+  font-family: "Archivo Black";
+  
+}
+
+.navbarHeader{
+  color: white;
+  font-size: large;
+}
+
+.country {
+  margin: 2vw;
+  min-width: 20vw;
+  background: rgb(146,148,209);
+  background: linear-gradient(153deg, rgba(146,148,209,1) 0%, rgba(67,107,148,1) 91%);
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  color: white;
+  box-shadow: 0.25rem 0.25rem 0rem rgba(130,144,158,1);
+  cursor: pointer;
+  font-family: Verdana, Geneva, Tahoma, sans-serif ;
+
+}
+
+.openWatchlist{ 
+  height: min-content;
+  min-width: 20vw;
+  background: rgb(146,148,209);
+  background: linear-gradient(153deg, rgba(146,148,209,1) 0%, rgba(67,107,148,1) 91%);
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  color: white;
+  box-shadow: 0.25rem 0.25rem 0rem rgba(130,144,158,1);
   font-family: Verdana, Geneva, Tahoma, sans-serif ;
 }
 
-.watchlist h2 {
-  font-size: larger;
+.openWatchlist:hover{
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
-.watchlistMovie {
+.watchlistDropdown{
+  display: none;
+  background: rgb(146,148,209);
+  background: linear-gradient(153deg, rgba(146,148,209,1) 0%, rgba(67,107,148,1) 91%);
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  margin: 20px;
+  outline: none;
+  box-shadow: 0.25rem 0.25rem 0rem rgba(130,144,158,1);
+}
+
+.watchlistDropdown li {
+  padding: 2vw;
+  text-decoration: none;
+  font-size: 18px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+
+.watchlistDropdown h2 {
+  font-weight: 300;
+  margin-top: 60px;
+}
+
+.watchlistDropdown .WatchlistMovie {
   transition: all 0.2s ease-in-out;
 }
 
@@ -282,6 +324,15 @@ ul {
   transform: scale(1.2);
   cursor: pointer;
 }
+
+.watchlist .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
 
 /* movieInfo */
 .movieInfo {
@@ -372,7 +423,7 @@ ul {
   cursor: pointer;
 }
 
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
   .openWatchlist {
     height: 6vw;
   }
@@ -405,7 +456,7 @@ ul {
     font-size: 36px;
     margin-left: 50px;
   }
-}
+} */
 
 @media (min-width: 768px) {
   .searchContainer {
@@ -435,20 +486,20 @@ ul {
     font-size: xx-large;
   }
 
-  .openWatchlist {
+  /* .openWatchlist {
     display: none;
-  }
+  } */
 
-  .watchlist {
+  /* .watchlist {
     min-width: 35vw;
     display: flex;
-  }
+  } */
 
-  .closebtn {
+  /* .closebtn {
     display: none;
   }
 
   .watchlist h2 {
     font-size: x-large;
-  }
+  } */
 }
