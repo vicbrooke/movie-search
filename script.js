@@ -41,16 +41,18 @@ function addMovieDetails(movie) {
     a = document.createElement("a");
     li = document.createElement("li");
     img = document.createElement("img");
+    
     a.href = i.url;
-    a.innerHTML = i.display_name;
     a.target = "_blank";
 
     img.src = i.icon;
     img.classList.add("streamingIcon");
 
-    li.append(img);
+    a.append(img);
+    a.append(i.display_name);
+    a.classList.add("streamingServices");
+
     li.append(a);
-    li.classList.add("streamingServices");
     streamingPlatforms.append(li);
   }
 
