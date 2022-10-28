@@ -8,11 +8,13 @@ const watchlistButton = document.querySelector(".watchlistButton");
 const chosenMovies = document.querySelector(".chosenMovies");
 const description2 = document.querySelector(".description2");
 const featured = document.querySelector(".featured");
+const featuredContainer = document.querySelector(".featuredContainer");
 let watchlistArr = [];
 let typingTimer;
 let a;
 let li;
 let currentMovie;
+let selection;
 
 const options = {
   method: "GET",
@@ -27,6 +29,8 @@ function addMovieDetails(movie) {
   while (streamingPlatforms.firstChild) {
     streamingPlatforms.removeChild(streamingPlatforms.lastChild);
   }
+
+  currentMovie = movie;
 
   movieTitle.innerText = movie.name;
   movieImage.src = movie.picture;
@@ -44,6 +48,8 @@ function addMovieDetails(movie) {
   movieDropDown.style.display = "none";
   watchlistButton.style.display = "inline";
   description2.style.display = "inline";
+  featuredContainer.style.display = "none";
+
 }
 
 function clean(node) {
@@ -61,9 +67,9 @@ function clean(node) {
   }
 }
 
-async function gather() {
+async function gather(searchTerm) {
   const response = await fetch(
-    `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${movieBox.value}&country=${countryBox.value}`,
+    `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${searchTerm}&country=${countryBox.value}`,
     options
   );
   const data = await response.json();
@@ -80,7 +86,7 @@ async function search() {
       i.lastChild.innerText = "";
     }
   } else {
-    await gather()
+    await gather(movieBox.value)
       .then((result) => (movieArray = result))
       .catch((error) => console.log(error));
 
@@ -139,22 +145,18 @@ movieBox.addEventListener("input", () => {
 document.addEventListener("click", (e) => {
   if (e.target.matches(".movieSuggestions,.dropdownImage, .dropdownTag")) {
     const card = e.target.closest(".movieSuggestions");
-    let selection =
+    selection =
       movieArray[
         cards.findIndex((element) => {
           return element === card;
         })
       ];
-
-    addMovieDetails(selection);
-
-    currentMovie = selection;
   } else if (e.target.matches(".watchlistMovie")) {
     const list = e.target.closest("li");
     clean(chosenMovies);
     let watchlist = Array.from(chosenMovies.childNodes);
     console.log(watchlist);
-    let selection =
+    selection =
       watchlistArr[
         watchlist.findIndex((element) => {
           return element === list;
@@ -162,8 +164,16 @@ document.addEventListener("click", (e) => {
       ];
     console.log(selection);
 
-    addMovieDetails(selection);
+    
+  } else if (e.target.matches(".featuredDiv,.featuredImage,.featuredTag")){
+    let featuredMovie = e.target.closest(".featuredDiv");
+    clean(featured);
+    featuredArray = Array.from(featured.childNodes);
+    selection = mergedArray[featuredArray.findIndex((element) => { return element === featuredMovie;})]
+    console.log(selection);
   }
+
+  addMovieDetails(selection);
 });
 
 movieBox.addEventListener("keypress", (e) => {
@@ -191,32 +201,13 @@ watchlistButton.addEventListener("click", () => {
   }
 });
 
-async function featuredMovies1() {
-  const response = await fetch(
-    `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=a&country=uk`,
-    options
-  );
-  const data = await response.json();
-  console.log(data.results);
-  return data.results;
-}
-
-async function featuredMovies2() {
-  const response = await fetch(
-    `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=t&country=uk`,
-    options
-  );
-  const data = await response.json();
-  console.log(data.results);
-  return data.results;
-}
 
 async function mergeMovies() {
   mergedArray = [];
-  await featuredMovies1()
+  await gather("a")
     .then((result) => (mergedArray = result))
     .catch((error) => console.log(error));
-  await featuredMovies2()
+  await gather("t")
     .then((result) => (mergedArray = mergedArray.concat(result)))
     .catch((error) => console.log(error));
   console.log(mergedArray);
