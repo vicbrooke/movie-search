@@ -9,6 +9,7 @@ const chosenMovies = document.querySelector(".chosenMovies");
 const description2 = document.querySelector(".description2");
 const featured = document.querySelector(".featured");
 const featuredContainer = document.querySelector(".featuredContainer");
+const viewWatchlist = document.querySelector(".openWatchlist")
 let watchlistArr = [];
 let typingTimer;
 let a;
@@ -104,6 +105,10 @@ async function search() {
     let count = 0;
 
     for (let i of movieArray) {
+        if(cards[count].firstChild.src === i.picture){
+            count++;
+            continue;
+        }
       try {
         cards[count].firstChild.src = i.picture;
       } catch {
@@ -126,6 +131,31 @@ async function search() {
   }
 }
 
+async function mergeMovies() {
+    mergedArray = [];
+    await gather("a")
+      .then((result) => (mergedArray = result))
+      .catch((error) => console.log(error));
+    await gather("t")
+      .then((result) => (mergedArray = mergedArray.concat(result)))
+      .catch((error) => console.log(error));
+    console.log(mergedArray);
+  
+    mergedArray.forEach((film) => {
+      const filmDiv = document.createElement("div");
+      const filmImage = document.createElement("img");
+      const filmTag = document.createElement("p");
+      filmDiv.className = "featuredDiv";
+      filmImage.className = "featuredImage";
+      filmTag.className = "featuredTag";
+      filmImage.setAttribute("src", film.picture);
+      filmTag.innerText = film.name;
+      filmDiv.append(filmImage);
+      filmDiv.append(filmTag);
+      featured.append(filmDiv);
+    });
+  }
+
 clean(movieDropDown);
 let cards = Array.from(movieDropDown.childNodes);
 
@@ -139,7 +169,7 @@ let registeredInput = false;
 
 movieBox.addEventListener("input", () => {
   clearTimeout(typingTimer);
-  typingTimer = setTimeout(search, 300);
+  typingTimer = setTimeout(search, 250);
 });
 
 document.addEventListener("click", (e) => {
@@ -151,10 +181,11 @@ document.addEventListener("click", (e) => {
           return element === card;
         })
       ];
+      addMovieDetails(selection);
   } else if (e.target.matches(".watchlistMovie")) {
     const list = e.target.closest("li");
-    clean(chosenMovies);
-    let watchlist = Array.from(chosenMovies.childNodes);
+    const container = e.target.closest(".chosenMovies")
+    let watchlist = Array.from(container.childNodes);
     console.log(watchlist);
     selection =
       watchlistArr[
@@ -163,6 +194,7 @@ document.addEventListener("click", (e) => {
         })
       ];
     console.log(selection);
+    addMovieDetails(selection);
 
     
   } else if (e.target.matches(".featuredDiv,.featuredImage,.featuredTag")){
@@ -171,9 +203,10 @@ document.addEventListener("click", (e) => {
     featuredArray = Array.from(featured.childNodes);
     selection = mergedArray[featuredArray.findIndex((element) => { return element === featuredMovie;})]
     console.log(selection);
+    addMovieDetails(selection);
   }
 
-  addMovieDetails(selection);
+  
 });
 
 movieBox.addEventListener("keypress", (e) => {
@@ -198,33 +231,23 @@ watchlistButton.addEventListener("click", () => {
     a.classList.add("watchlistMovie");
     li.append(a);
     chosenMovies.append(li);
+
   }
 });
 
+function openNav() {
+    document.querySelector(".watchlist").style.width = "250px";
+    console.log(document.querySelector(".watchlist").style.width);
+    return false;
+};
 
-async function mergeMovies() {
-  mergedArray = [];
-  await gather("a")
-    .then((result) => (mergedArray = result))
-    .catch((error) => console.log(error));
-  await gather("t")
-    .then((result) => (mergedArray = mergedArray.concat(result)))
-    .catch((error) => console.log(error));
-  console.log(mergedArray);
-
-  mergedArray.forEach((film) => {
-    const filmDiv = document.createElement("div");
-    const filmImage = document.createElement("img");
-    const filmTag = document.createElement("p");
-    filmDiv.className = "featuredDiv";
-    filmImage.className = "featuredImage";
-    filmTag.className = "featuredTag";
-    filmImage.setAttribute("src", film.picture);
-    filmTag.innerText = film.name;
-    filmDiv.append(filmImage);
-    filmDiv.append(filmTag);
-    featured.append(filmDiv);
-  });
+function closeNav() {
+    console.log(document.querySelector(".watchlist").style.width);
+    document.querySelector(".watchlist").style.width = "0";
+    return false;
+    
 }
+
+
 
 mergeMovies();
