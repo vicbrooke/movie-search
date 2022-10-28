@@ -161,7 +161,6 @@ ul {
 
 /* aside */
 .watchlist {
-  display: flex;
   flex-direction: column;
   min-width: 35vw;
   margin: 3vw 0;
@@ -230,11 +229,41 @@ ul {
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 767px) {
   .openWatchlist {
-    display: none;
+    height: 6vw;
   }
 
+  .watchlist {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 3vw;
+    transition: 0.5s;
+  }
+  .watchlist li {
+    padding: 2vw;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  .watchlist .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+}
+
+@media (min-width: 768px) {
   .searchContainer {
     flex-direction: row;
     justify-content: space-around;
@@ -260,6 +289,18 @@ ul {
 
   .movieTitle {
     font-size: xx-large;
+  }
+
+  .openWatchlist {
+    display: none;
+  }
+
+  .watchlist {
+    display: flex;
+  }
+
+  .closebtn {
+    display: none;
   }
 
   .watchlist h2 {
