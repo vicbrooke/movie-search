@@ -14,8 +14,6 @@ body {
   );
 }
 
-
-
 /* Header section */
 
 header {
@@ -43,35 +41,27 @@ header {
   box-shadow: 0.25rem 0.25rem 0rem rgba(130, 144, 158, 1);
 }
 
-
-
-
 .navButton {
   background-color: transparent;
   border: none;
 
-  position:absolute; 
-  top:0; 
-  left:0;
+  position: absolute;
+  top: 0;
+  left: 0;
 
   padding: 20px;
   margin: 20px;
   margin-top: 10px;
 }
 
-
-.navButton :hover{
+.navButton :hover {
   transform: scale(1.1);
   cursor: pointer;
-
 }
-
-
 
 .fa-bars {
   color: white;
 }
-
 
 /* main section */
 main {
@@ -198,7 +188,6 @@ ul {
 
 /* featured films */
 
-
 .featured {
   display: flex;
   flex-direction: row;
@@ -254,8 +243,8 @@ ul {
   overflow-x: hidden;
   padding-top: 3vw;
   transition: 0.5s;
-  font-family: Verdana, Geneva, Tahoma, sans-serif ;
-  }
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
 .headerContainer {
   display: flex;
@@ -267,20 +256,18 @@ ul {
   flex-direction: row;
   align-items: center;
   align-content: center;
-
 }
 
-.nav-items{
-  list-style:none;
+.nav-items {
+  list-style: none;
   flex-direction: column;
   align-items: center;
   gap: 15px;
   display: none;
   font-family: "Archivo Black";
-  
 }
 
-.navbarHeader{
+.navbarHeader {
   color: white;
   font-size: large;
 }
@@ -288,48 +275,59 @@ ul {
 .country {
   margin: 2vw;
   min-width: 20vw;
-  background: rgb(146,148,209);
-  background: linear-gradient(153deg, rgba(146,148,209,1) 0%, rgba(67,107,148,1) 91%);
+  background: rgb(146, 148, 209);
+  background: linear-gradient(
+    153deg,
+    rgba(146, 148, 209, 1) 0%,
+    rgba(67, 107, 148, 1) 91%
+  );
   padding: 0.5rem;
   border: none;
   outline: none;
   border-radius: 0.5rem;
   color: white;
-  box-shadow: 0.25rem 0.25rem 0rem rgba(130,144,158,1);
+  box-shadow: 0.25rem 0.25rem 0rem rgba(130, 144, 158, 1);
   cursor: pointer;
-  font-family: Verdana, Geneva, Tahoma, sans-serif ;
-
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.openWatchlist{ 
+.openWatchlist {
   height: min-content;
   min-width: 20vw;
-  background: rgb(146,148,209);
-  background: linear-gradient(153deg, rgba(146,148,209,1) 0%, rgba(67,107,148,1) 91%);
+  background: rgb(146, 148, 209);
+  background: linear-gradient(
+    153deg,
+    rgba(146, 148, 209, 1) 0%,
+    rgba(67, 107, 148, 1) 91%
+  );
   padding: 0.5rem;
   border: none;
   outline: none;
   border-radius: 0.5rem;
   color: white;
-  box-shadow: 0.25rem 0.25rem 0rem rgba(130,144,158,1);
-  font-family: Verdana, Geneva, Tahoma, sans-serif ;
+  box-shadow: 0.25rem 0.25rem 0rem rgba(130, 144, 158, 1);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.openWatchlist:hover{
+.openWatchlist:hover {
   transform: scale(1.1);
   cursor: pointer;
 }
 
-.watchlistDropdown{
+.watchlistDropdown {
   display: none;
-  background: rgb(146,148,209);
-  background: linear-gradient(153deg, rgba(146,148,209,1) 0%, rgba(67,107,148,1) 91%);
+  background: rgb(146, 148, 209);
+  background: linear-gradient(
+    153deg,
+    rgba(146, 148, 209, 1) 0%,
+    rgba(67, 107, 148, 1) 91%
+  );
   border: none;
   border-radius: 0.5rem;
   color: white;
   margin: 20px;
   outline: none;
-  box-shadow: 0.25rem 0.25rem 0rem rgba(130,144,158,1);
+  box-shadow: 0.25rem 0.25rem 0rem rgba(130, 144, 158, 1);
 }
 
 .watchlistDropdown li {
@@ -340,7 +338,6 @@ ul {
   display: block;
   transition: 0.3s;
 }
-
 
 .watchlistDropdown h2 {
   font-weight: 300;
@@ -363,7 +360,6 @@ ul {
   font-size: 36px;
   margin-left: 50px;
 }
-
 
 /* movieInfo */
 .movieInfo {
@@ -457,9 +453,7 @@ ul {
   cursor: pointer;
 }
 
-/* @media (max-width: 767px) {
- 
-
+@media (max-width: 767px) {
   .watchlist {
     margin-top: 0;
     height: 100%;
@@ -489,8 +483,6 @@ ul {
     margin-left: 50px;
   }
 
-} */
-
   .movieSuggestions {
     width: 75vw;
     padding: 1vw;
@@ -509,7 +501,6 @@ ul {
     font-size: larger;
   }
 }
-
 
 @media (min-width: 768px) {
   .searchContainer {
@@ -557,8 +548,6 @@ ul {
 
   } */
 
-  }
-
   .movieSuggestions {
     width: 50vw;
     padding: 2vw;
@@ -579,5 +568,4 @@ ul {
   .dropdownTag {
     font-size: x-large;
   }
-
 }
