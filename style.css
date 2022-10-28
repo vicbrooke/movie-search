@@ -162,7 +162,6 @@ ul {
 /* aside */
 .watchlist {
   flex-direction: column;
-  min-width: 35vw;
   margin: 3vw 0;
   align-content: center;
 }
@@ -235,6 +234,7 @@ ul {
   }
 
   .watchlist {
+    margin-top: 0;
     height: 100%;
     width: 0;
     position: fixed;
@@ -296,6 +296,7 @@ ul {
   }
 
   .watchlist {
+    min-width: 35vw;
     display: flex;
   }
 
