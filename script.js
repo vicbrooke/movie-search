@@ -14,6 +14,7 @@ let watchlistArr = [];
 let typingTimer;
 let a;
 let li;
+let img;
 let currentMovie;
 let selection;
 
@@ -39,10 +40,14 @@ function addMovieDetails(movie) {
   for (let i of movie.locations) {
     a = document.createElement("a");
     li = document.createElement("li");
+    img = document.createElement("img");
     a.href = i.url;
     a.innerHTML = i.display_name;
     a.target = "_blank";
+    img.src = i.icon;
+    li.append(img);
     li.append(a);
+    li.classList.add("streamingServices");
     streamingPlatforms.append(li);
   }
 
