@@ -10,6 +10,7 @@ const description2 = document.querySelector(".description2");
 const featured = document.querySelector(".featured");
 const featuredContainer = document.querySelector(".featuredContainer");
 const viewWatchlist = document.querySelector(".openWatchlist")
+const movieInfo = document.querySelector(".movieInfo");
 let watchlistArr = [];
 let typingTimer;
 let a;
@@ -56,6 +57,7 @@ function addMovieDetails(movie) {
   }
 
   movieDropDown.style.display = "none";
+  movieInfo.style.display = "flex";
   watchlistButton.style.display = "inline";
   description2.style.display = "inline";
   featuredContainer.style.display = "none";
