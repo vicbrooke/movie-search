@@ -15,8 +15,8 @@
   </head>
   <body>
     <header>
+      <!-- <button class="openWatchlist">View Watchlist</button> -->
       <h1 class="title">StreamFinder</h1>
-      <button class="openWatchlist">View Watchlist</button>
     </header>
 
     <main>
@@ -92,7 +92,13 @@
         <div class="featured"></div>
       </section>
       <div class="movieCard">
+        <button class="openWatchlist" onclick="openNav()">
+          &#9776; Watchlist
+        </button>
         <aside class="watchlist">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+            >&times;</a
+          >
           <h2>My Watchlist</h2>
           <ul class="chosenMovies"></ul>
         </aside>
