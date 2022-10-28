@@ -44,7 +44,10 @@ function addMovieDetails(movie) {
     a.href = i.url;
     a.innerHTML = i.display_name;
     a.target = "_blank";
+
     img.src = i.icon;
+    img.classList.add("streamingIcon");
+
     li.append(img);
     li.append(a);
     li.classList.add("streamingServices");
