@@ -41,7 +41,7 @@ function addMovieDetails(movie) {
     a = document.createElement("a");
     li = document.createElement("li");
     img = document.createElement("img");
-    
+
     a.href = i.url;
     a.target = "_blank";
 
@@ -49,7 +49,6 @@ function addMovieDetails(movie) {
     img.classList.add("streamingIcon");
 
     a.append(img);
-    a.append(i.display_name);
     a.classList.add("streamingServices");
 
     li.append(a);
