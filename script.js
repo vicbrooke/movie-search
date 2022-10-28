@@ -248,6 +248,18 @@ function closeNav() {
     
 }
 
+navButton = document.querySelector('.navButton')
+navItems = document.querySelector('.nav-items')
+
+navButton.addEventListener('click', () =>{
+
+  let navDisplay = navItems.style.display;
+  if(navDisplay === "none"){
+    navItems.style.display = 'flex'
+  } else{
+     navItems.style.display = 'none'
+  }
+})
 
 
 mergeMovies();
