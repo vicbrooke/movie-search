@@ -89,8 +89,9 @@ ul {
 }
 
 .movieDropdown {
-  position: relative;
+  position: absolute;
   display: inline-block;
+  margin-top: 8vw;
 }
 
 .movieSuggestions {
@@ -114,6 +115,7 @@ ul {
 
 .movieSuggestions:hover {
   transform: scale(1.1);
+  cursor: pointer;
 }
 
 .movieSuggestions img {
@@ -143,6 +145,7 @@ ul {
 
 .featuredDiv:hover {
   transform: scale(1.1);
+  cursor: pointer;
 }
 
 .featuredImage {
@@ -175,6 +178,7 @@ ul {
 
 .watchlistMovie:hover {
   transform: scale(1.2);
+  cursor: pointer;
 }
 
 /* movieInfo */
@@ -240,6 +244,10 @@ ul {
   .movieSearch {
     display: flex;
     flex-direction: column;
+  }
+
+  .movieDropdown {
+    margin-top: 2vw;
   }
 
   .movieName {
