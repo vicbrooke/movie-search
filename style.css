@@ -231,6 +231,10 @@ ul {
 }
 
 @media (min-width: 768px) {
+  .openWatchlist {
+    display: none;
+  }
+
   .searchContainer {
     flex-direction: row;
     justify-content: space-around;
