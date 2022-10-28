@@ -15,6 +15,7 @@ body {
 }
 
 
+
 /* Header section */
 
 header {
@@ -24,16 +25,40 @@ header {
   font-size: larger;
 }
 
-.navButton{
+/* Menu section */
+
+.openWatchlist {
+  height: min-content;
+  background: rgb(146, 148, 209);
+  background: linear-gradient(
+    153deg,
+    rgba(146, 148, 209, 1) 0%,
+    rgba(67, 107, 148, 1) 91%
+  );
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  color: white;
+  box-shadow: 0.25rem 0.25rem 0rem rgba(130, 144, 158, 1);
+}
+
+
+
+
+.navButton {
   background-color: transparent;
   border: none;
+
   position:absolute; 
   top:0; 
   left:0;
+
   padding: 20px;
   margin: 20px;
-  margin-top:  10px;
+  margin-top: 10px;
 }
+
 
 .navButton :hover{
   transform: scale(1.1);
@@ -41,10 +66,12 @@ header {
 
 }
 
-.fa-bars{
-  color: white;
 
+
+.fa-bars {
+  color: white;
 }
+
 
 /* main section */
 main {
@@ -87,7 +114,7 @@ ul {
 .description {
   text-align: center;
   width: 80%;
-  font-family: Verdana, Geneva, Tahoma, sans-serif ;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .searchContainer {
@@ -99,13 +126,12 @@ ul {
   align-content: center;
 }
 
-
 .movieSearch {
   display: flex;
   flex-direction: column;
 }
 
-.fa-search{
+.fa-search {
   padding: 0.5rem;
   color: white;
 }
@@ -115,14 +141,18 @@ ul {
   height: 30px;
   margin: 0 0.5rem 0 0.5rem;
   width: 100%;
-  border: none; 
+  border: none;
   outline: none;
-  background: rgb(146,148,209);
-  background: linear-gradient(153deg, rgba(146,148,209,1) 0%, rgba(67,107,148,1) 91%);
+  background: rgb(146, 148, 209);
+  background: linear-gradient(
+    153deg,
+    rgba(146, 148, 209, 1) 0%,
+    rgba(67, 107, 148, 1) 91%
+  );
   color: white;
   border-radius: 10px;
   border: 0;
-  box-shadow: 0.25rem 0.25rem 0rem rgba(130,144,158,1);
+  box-shadow: 0.25rem 0.25rem 0rem rgba(130, 144, 158, 1);
 }
 
 .movieDropdown {
@@ -149,10 +179,10 @@ ul {
   border-radius: 20px;
 }
 
-.movieSuggestions:hover {
+/* .movieSuggestions:hover {
   transform: scale(1.1);
   cursor: pointer;
-}
+} */
 
 .movieSuggestions img {
   width: 10vw;
@@ -188,8 +218,8 @@ ul {
   border-radius: 10px;
 }
 
-.featuredTag{
-  color: #1D1751;
+.featuredTag {
+  color: #1d1751;
 }
 
 .featuredDiv:hover {
@@ -237,6 +267,7 @@ ul {
   flex-direction: row;
   align-items: center;
   align-content: center;
+
 }
 
 .nav-items{
@@ -336,7 +367,7 @@ ul {
 
 /* movieInfo */
 .movieInfo {
-  display: flex;
+  display: none;
   flex-direction: column;
   margin: 0 3vw;
 }
@@ -345,14 +376,18 @@ ul {
   display: flex;
   flex-direction: column;
   margin: 3vw 0;
-  border: none; 
+  border: none;
   outline: none;
-  background: rgb(146,148,209);
-  background: linear-gradient(153deg, rgba(146,148,209,1) 0%, rgba(67,107,148,1) 91%);
+  background: rgb(146, 148, 209);
+  background: linear-gradient(
+    153deg,
+    rgba(146, 148, 209, 1) 0%,
+    rgba(67, 107, 148, 1) 91%
+  );
   color: white;
   border-radius: 10px;
   border: 0;
-  box-shadow: 0.25rem 0.25rem 0rem rgba(130,144,158,1);
+  box-shadow: 0.25rem 0.25rem 0rem rgba(130, 144, 158, 1);
 }
 
 .title-button {
@@ -364,8 +399,8 @@ ul {
 .watchlistButton {
   align-self: center;
   margin-bottom: 2vw;
-  font-size:25px;
-  border:none;
+  font-size: 25px;
+  border: none;
   background: transparent;
   padding-right: 10px;
   /* display: none; */
@@ -375,14 +410,14 @@ ul {
   visibility: hidden;
   opacity: 0;
   width: max-content;
-  background-color:rgb(146,148,209);
+  background-color: rgb(146, 148, 209);
   color: #fff;
   text-align: center;
   border-radius: 5px;
   transition: opacity 1s ease-in-out;
   z-index: 1;
   top: 110%;
-  font-size:300;
+  font-size: 300;
 }
 
 .watchlistButton:hover:before {
@@ -390,15 +425,14 @@ ul {
   visibility: visible;
 }
 
-.watchlistButton :hover{
+.watchlistButton :hover {
   transform: scale(1.1);
   cursor: pointer;
 }
 
-.fa-bookmark-o{
+.fa-bookmark-o {
   color: white;
 }
-
 
 .movieTitle {
   font-family: "Archivo Black";
@@ -412,9 +446,9 @@ ul {
   border-radius: 20px;
 }
 
-.streamingSection{
+.streamingSection {
   padding-top: 20px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif ;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 100;
 }
 
@@ -424,9 +458,7 @@ ul {
 }
 
 /* @media (max-width: 767px) {
-  .openWatchlist {
-    height: 6vw;
-  }
+ 
 
   .watchlist {
     margin-top: 0;
@@ -456,7 +488,28 @@ ul {
     font-size: 36px;
     margin-left: 50px;
   }
+
 } */
+
+  .movieSuggestions {
+    width: 75vw;
+    padding: 1vw;
+    left: 50%;
+    right: auto;
+    transform: translate(3vw, 2vw);
+  }
+  .movieSuggestions:hover {
+    transform: translate(3vw, 2vw) scale(1.1);
+    cursor: pointer;
+  }
+  .dropdownImage {
+    min-width: 30vw;
+  }
+  .dropdownTag {
+    font-size: larger;
+  }
+}
+
 
 @media (min-width: 768px) {
   .searchContainer {
@@ -501,5 +554,30 @@ ul {
 
   .watchlist h2 {
     font-size: x-large;
+
   } */
+
+  }
+
+  .movieSuggestions {
+    width: 50vw;
+    padding: 2vw;
+    left: 50%;
+    right: auto;
+    transform: translate(-20vw, 4vw);
+  }
+
+  .movieSuggestions:hover {
+    transform: translate(-20vw, 4vw) scale(1.1);
+    cursor: pointer;
+  }
+
+  .dropdownImage {
+    min-width: 20vw;
+  }
+
+  .dropdownTag {
+    font-size: x-large;
+  }
+
 }

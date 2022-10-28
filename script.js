@@ -13,10 +13,14 @@ const viewWatchlist = document.querySelector(".openWatchlist")
 countryFontColor = document.querySelector(".country")
 navButton = document.querySelector('.navButton')
 navItems = document.querySelector('.nav-items')
+
+const movieInfo = document.querySelector(".movieInfo");
+
 let watchlistArr = [];
 let typingTimer;
 let a;
 let li;
+let img;
 let currentMovie;
 let selection;
 
@@ -42,14 +46,23 @@ function addMovieDetails(movie) {
   for (let i of movie.locations) {
     a = document.createElement("a");
     li = document.createElement("li");
+    img = document.createElement("img");
+
     a.href = i.url;
-    a.innerHTML = i.display_name;
     a.target = "_blank";
+
+    img.src = i.icon;
+    img.classList.add("streamingIcon");
+
+    a.append(img);
+    a.classList.add("streamingServices");
+
     li.append(a);
     streamingPlatforms.append(li);
   }
 
   movieDropDown.style.display = "none";
+  movieInfo.style.display = "flex";
   watchlistButton.style.display = "inline";
   description2.style.display = "inline";
   featuredContainer.style.display = "none";
