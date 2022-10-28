@@ -10,7 +10,12 @@ const description2 = document.querySelector(".description2");
 const featured = document.querySelector(".featured");
 const featuredContainer = document.querySelector(".featuredContainer");
 const viewWatchlist = document.querySelector(".openWatchlist")
+countryFontColor = document.querySelector(".country")
+navButton = document.querySelector('.navButton')
+navItems = document.querySelector('.nav-items')
+
 const movieInfo = document.querySelector(".movieInfo");
+
 let watchlistArr = [];
 let typingTimer;
 let a;
@@ -249,6 +254,7 @@ watchlistButton.addEventListener("click", () => {
 function openNav() {
     document.querySelector(".watchlist").style.width = "250px";
     console.log(document.querySelector(".watchlist").style.width);
+    navItems.style.display = 'flex'
     return false;
 };
 
@@ -259,18 +265,36 @@ function closeNav() {
     
 }
 
-navButton = document.querySelector('.navButton')
-navItems = document.querySelector('.nav-items')
-
-navButton.addEventListener('click', () =>{
-
-  let navDisplay = navItems.style.display;
-  if(navDisplay === "none"){
-    navItems.style.display = 'flex'
+function displayWatchlist() {
+  if(document.querySelector(".watchlistDropdown").style.display === "block"){
+    document.querySelector(".watchlistDropdown").style.display = "none"
   } else{
-     navItems.style.display = 'none'
+    document.querySelector(".watchlistDropdown").style.display = "block"
+  }
+}
+
+
+
+
+countryFontColor.addEventListener('mouseover', function onClick(event) {
+  const fontColor = event.target.style.color;
+  if(fontColor === "white"){
+    event.target.style.color = 'black'
+  } else{
+    event.target.style.color = 'white'
   }
 })
+
+// navButton.addEventListener('click', () =>{
+
+//   let navDisplay = navItems.style.display;
+//   if(navDisplay === "none"){
+//     navItems.style.display = 'flex'
+//   } else{
+//      navItems.style.display = 'none'
+//   }
+// })
+
 
 
 mergeMovies();
