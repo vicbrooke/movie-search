@@ -361,37 +361,6 @@ ul {
   margin-left: 50px;
 }
 
-/* movieInfo */
-.movieInfo {
-  display: none;
-  flex-direction: column;
-  margin: 0 3vw;
-}
-
-.movieContainer {
-  display: flex;
-  flex-direction: column;
-  margin: 3vw 0;
-  border: none;
-  outline: none;
-  background: rgb(146, 148, 209);
-  background: linear-gradient(
-    153deg,
-    rgba(146, 148, 209, 1) 0%,
-    rgba(67, 107, 148, 1) 91%
-  );
-  color: white;
-  border-radius: 10px;
-  border: 0;
-  box-shadow: 0.25rem 0.25rem 0rem rgba(130, 144, 158, 1);
-}
-
-.title-button {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 .watchlistButton {
   align-self: center;
   margin-bottom: 2vw;
@@ -424,6 +393,37 @@ ul {
 .watchlistButton :hover {
   transform: scale(1.1);
   cursor: pointer;
+}
+
+/* movieInfo */
+.movieInfo {
+  display: none;
+  flex-direction: column;
+  margin: 0 3vw;
+}
+
+.movieContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 3vw 0;
+  border: none;
+  outline: none;
+  background: rgb(146, 148, 209);
+  background: linear-gradient(
+    153deg,
+    rgba(146, 148, 209, 1) 0%,
+    rgba(67, 107, 148, 1) 91%
+  );
+  color: white;
+  border-radius: 10px;
+  border: 0;
+  box-shadow: 0.25rem 0.25rem 0rem rgba(130, 144, 158, 1);
+}
+
+.title-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .fa-bookmark-o {
@@ -530,24 +530,6 @@ ul {
     font-size: xx-large;
   }
 
-  /* .openWatchlist {
-    display: none;
-  } */
-
-  /* .watchlist {
-    min-width: 35vw;
-    display: flex;
-  } */
-
-  /* .closebtn {
-    display: none;
-  }
-
-  .watchlist h2 {
-    font-size: x-large;
-
-  } */
-
   .movieSuggestions {
     width: 50vw;
     padding: 2vw;
@@ -567,5 +549,9 @@ ul {
 
   .dropdownTag {
     font-size: x-large;
+  }
+
+  .watchlist {
+    max-width: 30vw;
   }
 }

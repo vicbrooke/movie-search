@@ -251,7 +251,7 @@ watchlistButton.addEventListener("click", () => {
 });
 
 function openNav() {
-  document.querySelector(".watchlist").style.width = "25vw";
+  document.querySelector(".watchlist").style.width = "50vw";
   console.log(document.querySelector(".watchlist").style.width);
   navItems.style.display = "flex";
   return false;
